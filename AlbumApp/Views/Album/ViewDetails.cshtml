@@ -1,0 +1,41 @@
+﻿@model Album
+
+@{
+    ViewData["Title"] = "View  Album";
+}
+
+<form   method="post">
+
+    
+    <div class="form-group">
+        <label asp-for="Title"><a>View Album</a></label>
+        <label asp-for="Title">| <a asp-action="Edit" asp-controller="Album" asp-route-Id="@Model.Id">Edit This Album</a></label>
+        <label asp-for="Title">| <a asp-controller="Album" asp-action="Create">Add a Album</a></label>
+    </div>
+    <br />
+    <div class="form-group col-md-4">
+        <label asp-for="Title">Title</label>
+        <input readonly asp-for="Title" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group col-md-4">
+        <label asp-for="Author">Author</label>
+        <input readonly asp-for="Author" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group col-md-4">
+        <label asp-for="Song">Song</label>
+        <input readonly asp-for="Song" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group col-md-4">
+        <label asp-for="Rating">Rating</label>
+        <input readonly asp-for="Rating" class="form-control" />
+    </div>
+    <br />
+    <input hidden asp-for="Id" />
+    <div class="form-group">
+    
+        <a asp-action="List" asp-controller="Album" class="btn btn-primary">Cancel</a>
+    </div>
+</form>

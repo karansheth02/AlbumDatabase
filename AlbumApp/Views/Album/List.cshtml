@@ -1,0 +1,40 @@
+﻿@model List<Album>;
+
+@{
+    ViewData["Title"] = "All Albums";
+}
+<div class="text-center">
+    <p>My Albums</p>
+    <p><a asp-controller="Album" asp-action="Create">Add a Album</a></p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Song</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Title</td>
+
+                    <td>@m.Author</td>
+                    <td>@m.Song</td>
+                    <td>@m.Rating</td>
+
+                    <td>
+                        <a asp-action="Edit" asp-controller="Album" asp-route-Id="@m.Id">Edit</a>
+                        <a asp-action="ViewDetails" asp-controller="Album" asp-route-Id="@m.Id">View Details</a>
+                    </td>
+              
+</tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
